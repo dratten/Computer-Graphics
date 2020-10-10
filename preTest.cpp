@@ -55,7 +55,50 @@ void squares()
 	glFlush();//Allows fast execution of the statements
 }
 
+void circles()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 0.0, 0.0);
+	glLineWidth(5.0);
+	int i;
+	int x = 60;// Midpoint of circle
+	int y = 60;//Midpoint of circle
+	int radius = 50;
+	int lineAmount = 100; //# of triangles used to draw circle
+	GLfloat twicePi = 2.0f * 3.14159265358979323846;
 
+	glBegin(GL_LINE_LOOP);//Circle 1
+	for (i = 0; i <= lineAmount; i++) {
+		glVertex2f(
+			x + (radius * cos(i * twicePi / lineAmount)),
+			y + (radius * sin(i * twicePi / lineAmount))
+		);
+	}
+	glEnd();
+	glBegin(GL_LINE_LOOP);//Circle 2
+	for (i = 0; i <= lineAmount; i++) {
+		x = 130;
+		y = 60;
+		radius = 50;
+		glVertex2f(
+			x + (radius * cos(i * twicePi / lineAmount)),
+			y + (radius * sin(i * twicePi / lineAmount))
+		);
+	}
+	glEnd();
+	glBegin(GL_LINE_LOOP);//Circle 3
+	for (i = 0; i <= lineAmount; i++) {
+		x = 90;
+		y = 130;
+		radius = 50;
+		glVertex2f(
+			x + (radius * cos(i * twicePi / lineAmount)),
+			y + (radius * sin(i * twicePi / lineAmount))
+		);
+	}
+	glEnd();
+	glFlush();//Allows fast execution of the statements
+}
 
 
 
